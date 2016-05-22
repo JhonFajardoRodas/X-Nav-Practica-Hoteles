@@ -1,0 +1,94 @@
+/* CSS for simple.html (Leaflet) */
+
+
+.jumbotron {
+  text-align: center center;
+    height: 280px;
+    width: auto;
+    background-image: url("images/logo.png");
+    background-color: inherit;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: black;
+
+}
+
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+
+h1 { padding: .2em; margin: 0; }
+
+#map {
+  /*width: 410px;*/
+  width: auto;
+  height: 300px;
+}
+#info-user-google, .hotels-list{
+  background: white none repeat scroll 0 0;
+  border: 3px solid #666;
+  margin: 5px;
+  padding: 5px;
+  position: relative;
+  width: aut;
+  height: auto;
+  overflow: auto;
+
+}
+
+.list-collections {
+  background: white none repeat scroll 0 0;
+  border: 3px solid #666;
+  margin: 5px;
+  padding: 5px;
+  position: relative;
+  width: 280px;
+  height: auto;
+  overflow: auto;
+
+}
+.show-list-selected{
+  background: white none repeat scroll 0 0;
+  border: 3px solid #666;
+  margin: 5px;
+  padding: 5px;
+  position: relative;
+  width: 280px;
+  height:auto;
+  overflow: auto;
+}
+
+.show-list{
+  background: white none repeat scroll 0 0;
+  border: 3px solid #666;
+  margin: 5px;
+  padding: 5px;
+  position: relative;
+  width: 280px;
+  height: 600px;
+  overflow: auto;
+}
+#list,  #list-selected {
+  padding: 5px;
+}
+
+#desc{
+  margin: 5px;
+  padding: 5px;
+}
+
+#list-selected ol { margin: 0; padding: 1em 0 1em 3em; }
+
+#products { float:left; width: 500px; margin-right: 2em; }
+.cart { width: 200px; float: left; margin-top: 1em; }
+  /* style the list to maximize the droppable hitarea */
+.cart ol { margin: 0; padding: 1em 0 1em 3em; }
+
+
+#feedback { font-size: 1.4em; }
+#selectable .ui-selecting { background: #FECA40; }
+#selectable .ui-selected { background: #F39814; color: white; }
+#selectable { list-style-type: none; margin: 0; padding: 0; width: 100px; }
+#selectable p { margin: 3px; padding: 1px; float: left; width: 100px; height: 80px; font-size: 20px; text-align: center; }
