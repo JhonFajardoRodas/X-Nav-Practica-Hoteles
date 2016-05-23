@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<!--
+    Simple view of accomodations in Madrid
+-->
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <html manifest="cache.manifest">
+    <title>Viájalo</title>
+
+    <link href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" rel="stylesheet">
+    <link href="alojamientos.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="jquery-ui-1.11.4.custom/jquery-ui.min.css">
+
+    <script type="text/javascript" src="jquery-1.12.1.min.js"></script>
+    <script type="text/javascript" src="jquery-ui-1.11.4.custom/jquery-ui.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+    <script src="github.js"></script>
+    <script type="text/javascript" src="alojamientos.js" defer></script>
+    </head>
+  <body>
+
+    <div class="jumbotron text-center">
+    </div>
+
+    <div id="tabs">
+      <ul>
+      <li><a href="#tabs-1">Principal</a></li>
+      <li><a href="#tabs-2">Colecciones</a></li>
+      <li><a href="#tabs-3">Alojados</a></li>
+      </ul>
+
+      <div id="tabs-1">
+        <div class="row">
+          <div class="col-sm-4">
+            <button class='get' type="button">Empieza a buscar los mejores hoteles !!</button>
+            <div class="show-list">
+              <h1 class="ui-widget-header">Hoteles en Madrid</h1>
+              <div class="list"></div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div id="map"></div>
+          </div>
+          <div class="col-sm-4">
+            <h1 class="ui-widget-header">Mis Colecciones</h1>
+            <div class="list-collections-principal">
+            </div>
+              <div class="hotels-list"></div>
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="desc">
+          </div>
+        </div>
+      </div>
+
+
+      <div id="tabs-2">
+        <div class="row">
+          <div class="col-sm-3">
+            <button class='get' type="button">Empieza a buscar los mejores hoteles !!</button>
+            <div class="show-list">
+              <h1 class="ui-widget-header">Hoteles en Madrid</h1>
+              <div class="list"></div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="show-list-selected">
+               Pon el nombre de tu colección: <input type="text" id="name-colecction" placeholder="Pon nombre a tu colección">
+              <div class="cart">
+                 Arrastra tus hoteles:
+                <div class="ui-widget-content">
+                <ol>
+                <li class="placeholder">Arrastra tus hoteles hasta aquí</li>
+                </ol>
+                </div>
+              <button type="submit" class="btn-add-collection">Crear</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <h1 class="ui-widget-header">Mis Colecciones</h1>
+            <div class="list-collections-container">
+              <ol id="selectable"></ol>
+              <div class="hotels-list">
+                <h3></h3>
+                <div class="ui-widget-content">
+                 <ol>
+                   <li class="placeholder"></li>
+                 </ol>
+               </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <form id="form-file-github" action="index.html">
+             <h3>Descargar colección de GitHub:</h3><input type="text"id ="file-json" name="file-json"><br>
+             <input type="submit" value="Pedir">
+           </form>
+
+           <form id="save-file-github" action="index.html">
+             <p><h3>Almacenar la colección en tu GitHub:</h3></p>
+            Fichero json: <input type="text" id ="file-json-save" name="file-json"><br>
+            Repositorio GitHub: <input type="text" id ="repo-json" name="file-json"><br>
+            Token GitHub: <input type="text"id ="token-json" name="file-json"><br>
+            <input type="submit" value="Subir">
+          </form>
+
+          </div>
+          </div>
+        </div>
+
+      <div id="tabs-3">
+        <div class="row">
+          <div class="col-sm-6">
+          <input type="text" id="name-user" placeholder="usuario Google+">
+          <button type="submit" id="btn-add-user">Acceder</button>
+          <p><strong>Entra con tu usuario de Google+ y sigue a tus hoteles favoritos</strong></p>
+         </div>
+         <div class="col-sm-6">
+          <div id = "info-user-google"></div>
+        </div>
+        </div>
+        <div class="row">
+          <div class="desc2">
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <button class='follow'>Seguir</button>
+          </div>
+          <div class="col-sm-6">
+            <div id = "followers"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</body>
+</html>
