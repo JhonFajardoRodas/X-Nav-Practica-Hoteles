@@ -5,6 +5,7 @@
 // Simple version. Doesn't work well if some of the fields are not defined.
 // (for example, if there are no pictures)
 //
+var current_name = "";
 array_collection = new Array();
 array_google = new Array();
 array_hotels_follow = new Array();
@@ -293,7 +294,7 @@ function get_accomodations(){
     }
     list = list + '</ul>';
     $('.list').html(list);
-    $('li').click(show_accomodation);
+    $('li.li-sel').click(show_accomodation);
     $('#map').show();
     $('.show-list').show();
     $('.show-list-selected').show();
@@ -305,11 +306,15 @@ function show_followers(hotel_name){
 
   console.log("---" + hotel_name)
   var html = "<h3>SEGUIDORES</h3>"
+
   for (iterator=0; iterator < array_hotels_follow.length; iterator++){
     if(array_hotels_follow[iterator].name_hotel == hotel_name){
+      console.log(array_hotels_follow[iterator].name_hotel)
+      console.log(hotel_name)
       for (i2=0; i2 < array_hotels_follow[iterator].users_f_hotel.length; i2++){
-        html += "<li>" + array_hotels_follow[iterator].users_f_hotel[i2] + "</li>"
-
+        console.log("long" + array_hotels_follow[iterator].users_f_hotel.length)
+        html += "<li>"+ array_hotels_follow[iterator].users_f_hotel[i2] + "</li><br>"
+        console.log("Añado li")
       }
     }
   }
@@ -396,6 +401,7 @@ function getToken(file , repo, tok) {
 };
 
 function writeFile(file_j) {
+  console.log(file_j)
     console.log("escribo")
     var info = {};
     info["collections"] = array_collection;
@@ -443,6 +449,7 @@ function reg_google_user (name_google){
       $('#info-user-google').append(html_follow3);
       $('#info-user-google').append(html_follow);
       console.log(resp.displayName);
+      current_name = resp.displayName;
       })
     })
   }
@@ -510,33 +517,34 @@ $(document).ready(function() {
 
   $('.follow').click(function(){
     //console.log("follow" + name_desc)
-    var usr  = $('#name-user').val();
+    //var usr  = $('#name-user').val();
     var found = found2 = false;
-    console.log(usr)
+    console.log("++++++++++" + current_name)
     array_hotels_follow.forEach(function(index){
       if(index.name_hotel == name_desc){
-        inndex.users_f_hotel.push(usr);
+        index.users_f_hotel.push(current_name);
         found = true;
-        $('#followers').append("<li>" + usr + "</li>");
+        console.log("Añado li 2")
+        $('#followers').append("<li>"  + current_name + "</li>");
       }
     });
     if(!found){
       var aux = new Object();
       aux.name_hotel = name_desc;
       aux.users_f_hotel = [];
-      aux.users_f_hotel.push(usr);
+      aux.users_f_hotel.push(current_name);
       array_hotels_follow.push(aux);
-      $('#followers').append("<li>" + usr + "</li>");
+      $('#followers').append("<li>" + current_name + "</li>");
 
       array_google.forEach(function(index2){
-        if(index2.name == usr){
+        if(index2.name == current_name){
           index2.hotels.push(name_desc);
           found2= true;
         }
       });
       if(!found2){
         var aux2 = new Object();
-        aux2.name = usr;
+        aux2.name = current_name;
         aux2.hotels = [];
         aux2.hotels.push(name_desc);
         array_google.push(aux2);
